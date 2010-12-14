@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0">
+
+    <service interface="javax.servlet.Servlet" ref="servlet">
+        <service-properties>
+            <entry key="urlPatterns" value="*.do" />
+            <!-- <entry key="httpContext.id" value="console" /> -->
+
+            <!-- Property supported by PAX -->
+            <entry key="servlet-name" value="Console Servlet" />
+        </service-properties>
+    </service>
+
+    <service interface="javax.servlet.Servlet" ref="resourceServlet">
+        <service-properties>
+            <entry key="alias" value="/res" />
+            <!-- <entry key="httpContext.id" value="console" /> -->
+
+            <!-- Property supported by PAX -->
+            <entry key="servlet-name" value="Resource servlet" />
+        </service-properties>
+    </service>
+
+    <bean id="servlet" class="org.code_house.webconsole.runtime.web.LaunchServlet">
+        <!-- <property name="plugins" ref="plugins" /> -->
+        <property name="extensionRegistry" ref="extensionRegistry" />
+    </bean>
+
+    <bean id="resourceServlet" class="org.code_house.webconsole.runtime.web.ResourceServlet">
+        <!-- <property name="plugins" ref="plugins" /> -->
+        <property name="extensionRegistry" ref="extensionRegistry" />
+    </bean>
+
+    <!--
+    <service interface="org.osgi.service.http.HttpContext" ref="context">
+        <service-properties>
+            <entry key="httpContext.id" value="console" />
+            <entry key="httpContext.path" value="/console" />
+        </service-properties>
+    </service>
+
+    <bean id="context" class="org.code_house.webconsole.runtime.web.ConsoleContext"
+        init-method="start" destroy-method="stop">
+        <argument>
+            <reference interface="org.osgi.service.http.HttpService" />
+        </argument>
+        <property name="resources" ref="resources" />
+        <property name="collections" ref="resourceCollections" />
+    </bean>
+    -->
+
+    <reference id="extensionRegistry" interface="org.code_house.webconsole.runtime.registry.ExtensionRegistry" />
+
+</blueprint>

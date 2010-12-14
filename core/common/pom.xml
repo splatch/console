@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation=" http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <!-- Maven model version - the version 4.0.0 is reserver for Maven 2.x -->
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+	    <groupId>org.code-house.webconsole</groupId>
+	    <artifactId>core</artifactId>
+	    <version>1.0.0.SNAPSHOT</version>
+    </parent>
+
+    <!-- Project identification -->
+    <groupId>org.code-house.webconsole.core</groupId>
+    <artifactId>common</artifactId>
+
+    <name>Code-House :: WebConsole :: Core :: Common</name>
+
+    <packaging>bundle</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.code-house.webconsole.core</groupId>
+            <artifactId>api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.core</artifactId>
+        </dependency>
+    </dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<configuration>
+					
+				</configuration>
+				<extensions>true</extensions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

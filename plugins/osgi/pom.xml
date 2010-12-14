@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation=" http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <!-- Maven model version - the version 4.0.0 is reserver for Maven 2.x -->
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+	    <groupId>org.code-house.webconsole</groupId>
+	    <artifactId>plugins</artifactId>
+	    <version>1.0.0.SNAPSHOT</version>
+    </parent>
+
+    <!-- Project identification -->
+    <groupId>org.code-house.webconsole.plugins</groupId>
+    <artifactId>osgi</artifactId>
+
+    <name>Code-House :: WebConsole :: Plugins :: OSGi</name>
+
+    <packaging>pom</packaging>
+
+	<modules>
+		<module>common</module>
+		<module>bundle</module>
+		<!--
+		<module>log</module>
+		<module>service</module>
+		-->
+	</modules>
+
+</project>

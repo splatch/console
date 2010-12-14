@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://code-house.org/webconsole-1.0"
+	xmlns:tns="http://code-house.org/webconsole-1.0" elementFormDefault="qualified">
+
+	<element name="plugin" type="tns:TPlugin" />
+
+	<complexType name="TPlugin">
+		<complexContent>
+			<extension base="tns:TExtension">
+				<choice maxOccurs="unbounded">
+					<element name="resource" type="tns:TResource" />
+					<element name="resourceCollection" type="tns:TResourceCollection" />
+				</choice>
+
+				<attribute name="name" type="string" />
+				<attribute name="vendor" type="string" />
+				<attribute name="url" type="anyURI" />
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="TExtension" abstract="true">
+		<attribute name="id" type="ID" use="required" />
+	</complexType>
+
+	<!-- Path to resources -->
+	<complexType name="TResourceCollection">
+		<complexContent>
+			<extension base="tns:TExtension">
+				<sequence>
+					<element name="location" type="anyURI" />
+				</sequence>
+				<attribute name="aliasPrefix" type="anyURI" />
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<!-- Single resource -->
+	<complexType name="TResource">
+		<complexContent>
+			<extension base="tns:TExtension">
+				<sequence>
+					<element name="location" type="anyURI" />
+				</sequence>
+				<attribute name="alias" type="anyURI" />
+			</extension>
+		</complexContent>
+	</complexType>
+
+</schema>
